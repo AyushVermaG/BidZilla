@@ -1,0 +1,260 @@
+<html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Antique painting</title>
+      <style>
+            body {
+                   margin: 0;
+                   font-family: "Arial", sans-serif;
+                   background-color: #121212;
+                   color: #d3d3d3;
+                 }
+
+                 a {
+                   color: #00d1ff;
+                   text-decoration: none;
+                 }
+
+                 a:hover {
+                   color: aqua;
+                   transition: 1s;
+                 }
+
+                 button {
+                   background-color: #00d1ff;
+                   border: none;
+                   color: white;
+                   padding: 10px 20px;
+                   cursor: pointer;
+                   border-radius: 5px;
+                 }
+
+                 button:hover {
+                   background-color: #39ff14;
+                 }
+
+                 h1,
+                 h3,
+                 h4 {
+                   color: white;
+                 }
+                h2{
+                  float: right;
+                  color: white;
+                  font-family: Arial, Helvetica, sans-serif;
+                  font-size: large;
+                  padding-left: 15px;
+                  word: spacing 4px;
+
+
+
+                }
+
+
+                 header {
+                   background-color: #000000;
+                   display: flex;
+                   justify-content: space-between;
+                   align-items: center;
+                   padding: 22px;
+                   position: fixed;
+                   top: 0;
+                   width: 97%;s
+                   z-index: 1000;
+                 }
+
+                 .logo {
+                   color: #ffffff;
+                   font-size: 25px;
+                   font-weight: bold;
+                 }
+
+                 nav a {
+                   margin: 0 15px;
+                   color: #d3d3d3;
+                 }
+
+                 nav a:hover {
+                   color: #06f64a;
+                 }
+
+                 .dashboard-content {
+                   padding: 100px 20px;
+                   background-color: #121212;
+                   text-align: center;
+                   margin-top:auto;
+                 }
+
+                 .welcome-message {
+                   margin-bottom: 40px;
+                 }
+
+                 .seller-info-form {
+                   background-color: #1a1a1a;
+                   padding: 20px;
+                   border-radius: 10px;
+                   max-width: 80%;
+                   height: 80%;
+                   margin: 0 auto;
+                   display: block;
+                   align-items: center;
+                   justify-content: center;
+                   overflow-y: auto;
+                 }
+
+                 .seller-info-form h2 {
+                   color: white;
+                 }
+                 .seller-info-form img {
+                  max-width: 680px;
+                  max-height: 350px;
+                 }
+                
+
+
+
+
+                 footer {
+                   background-color: #000000;
+                   padding: 30px;
+                   text-align: center;
+                   color: #d3d3d3;
+                   margin-top: 50px;
+                 }
+
+                 footer a {
+                   color: #d3d3d3;
+                   margin: 0 10px;
+                 }
+
+                 footer a:hover {
+                   color: #2eff05;
+                 }
+                 .search-bar input {
+              font-family: "Times New Roman", Times, serif;
+              padding: 8px;
+              width: 300px;
+              background-color: #1c1c1c;
+              border: 1px solid #333;
+              color: #d3d3d3;
+              border-radius: 5px;
+            }
+            b{
+                color: aqua;
+            }
+          footer {
+          background-color: #000000;
+          padding: 30px;
+          text-align: center;
+          color: #d3d3d3;
+        }
+
+        footer a {
+          color: #d3d3d3;
+          margin: 0 10px;
+        }
+
+        footer a:hover {
+          color: #2eff05;
+
+          }
+
+          ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a; 
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333; 
+            border-radius: 10px; 
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00d1ff; 
+        }
+
+                 @media only screen and (max-width: 600px) {
+                   header,
+                   nav a,
+                   .seller-info-form {
+                     display: grid;
+                     justify-content: center;
+                     text-align: center;
+                   }
+
+                   .logo {
+                     text-align: center;
+                   }
+                 }
+      </style>
+    </head>
+    <body>
+      <header>
+        <div class="logo">Bid<font color="aqua">Zilla</font></div>
+        <div class="search-bar">
+          <input type="text" placeholder="Search items..." />
+        </div>
+        <nav>
+          <a href="index.html"><button class="seller">Home</button></a>
+        </nav>
+      </header>
+      <section class="dashboard-content">
+        <h1>Privacy Policy, Bid<font color="aqua">Zilla</font></h1>
+      </section>
+      <section class="seller-info-form">
+        <h2><dl>
+            <dt>
+            <b><h1>1. Information We Collect</h1></b></li></dt>
+            <dd><ul style="list-style-type:disc;">
+                <li>
+
+                    Personal Information: Name, email address, contact number, and billing information (if applicable).</li>
+                   <li> Account Details: Username, password, and profile information.</li>
+                  <li>  Bidding Information: History of bids, items of interest, and purchase details.</li>
+                   <li> Payment Information: If you make payments through the platform, we collect necessary payment details (credit/debit card information, bank account details, etc.).</li>
+                   <li> Technical Data: IP address, browser type, operating system, and device information.</li>
+                   <li> Cookies: We may use cookies to improve your experience on our platform.</li>
+                   </ul>
+            </dd>
+            <dt>
+                <b><h1>2. How We Use Your Information</h1></b></li></dt>
+                <dd><ul style="list-style-type:disc;">
+                    <li>To provide and maintain the Bidzilla platform.</li> 
+                    <li>To process your bids and purchases.</li> 
+                    <li>To improve and personalize your user experience.</li> 
+                    <li>To communicate with you regarding auctions, updates, and promotional offers.</li> 
+                    <li>To analyze user behavior and improve the platform’s features.</li> 
+                    <li>To detect and prevent fraud, security breaches, or illegal activities.</li>
+                       </ul>
+                </dd>
+                  <b><h1>3. Sharing Your Information</h1></b></li></dt>
+                    <dd><ul style="list-style-type:disc;">
+                  <dt>
+                        <li>With Service Providers: We may share information with trusted third-party service providers to facilitate transactions, process payments, and provide customer support.</li>
+                         <li>For Legal Purposes: We may disclose your information to comply with legal obligations, protect our rights, or respond to a court order.</li>
+                          <li>Business Transfers: In the event of a merger, acquisition, or sale of assets, your information may be transferred to the new owner.</li>
+                           </ul>
+                    </dd>
+                    <dt>
+                        <b><h1>4. Your Rights</h1></b></li></dt>
+                        <dd><ul style="list-style-type:disc;">
+                            <li>**Access**: You can request a copy of the information we have about you.</li> <li>**Correction**: You can update or correct your personal information.</li> <li>**Deletion**: You can request the deletion of your data, subject to any legal obligations.</li> <li>**Objection**: You may object to the processing of your personal data for marketing purposes.</li>
+                               </ul>
+                        </dd>
+                        <dt>
+                            <b><h1>5. Changes to This Policy</h1></b></li></dt>
+                            <dd><ul style="list-style-type:disc;">
+                                <li>We may update this Privacy Policy from time to time. Any changes will be posted on this page, and the "Effective Date" will be updated accordingly.</li>
+                                   </ul>
+                            </dd>
+                            </dl>
+       </h2>
+      </section>
+    </body>
+  </html>
+</html>

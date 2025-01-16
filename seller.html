@@ -1,0 +1,262 @@
+<html>
+  <head>
+    <title>BidZilla - Seller Dashboard</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Arial", sans-serif;
+        background-color: #121212;
+        color: #d3d3d3;
+      }
+
+      a {
+        color: #00d1ff;
+        text-decoration: none;
+        transition: 0.5s;
+      }
+
+      a:hover {
+        color: aqua;
+        transition: 0.5s;
+      }
+
+      button {
+        background-color: #00d1ff;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      button:hover {
+        background-color: #39ff14;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        color: white;
+      }
+
+      header {
+        background-color: #000000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 22px;
+        position: fixed;
+        top: 0;
+        width: 97%;
+        z-index: 1000;
+      }
+
+      .logo {
+        color: #ffffff;
+        font-size: 25px;
+        font-weight: bold;
+      }
+
+      nav a {
+        margin: 0 15px;
+        color: #d3d3d3;
+      }
+
+      nav a:hover {
+        color: #06f64a;
+      }
+
+      .dashboard-content {
+        padding: 100px 20px;
+        background-color: #121212;
+        text-align: center;
+      }
+
+      .welcome-message {
+        margin-bottom: 40px;
+      }
+
+      .seller-info-form {
+        background-color: #1a1a1a;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .seller-info-form h2 {
+        color: white;
+        margin-bottom: 20px;
+      }
+
+      .seller-info-form label {
+        display: block;
+        margin-bottom: 8px;
+        color: #d3d3d3;
+        text-align: left;
+      }
+
+      .seller-info-form input[type="text"],
+      .seller-info-form input[type="email"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        background-color: #1c1c1c;
+        border: 1px solid #333;
+        border-radius: 5px;
+        color: #d3d3d3;
+      }
+
+      .seller-info-form button {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        background-color: #00d1ff;
+        border: none;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .seller-info-form button:hover {
+        background-color: #39ff14;
+      }
+
+      footer {
+        background-color: #000000;
+        padding: 30px;
+        text-align: center;
+        color: #d3d3d3;
+        margin-top: 50px;
+      }
+
+      footer a {
+        color: #d3d3d3;
+        margin: 0 10px;
+      }
+
+      footer a:hover {
+        color: #2eff05;
+      }
+
+      .home-btm {
+        color: aqua;
+        color: #ffffff;
+        font-size: medium;
+      }
+
+      .home-btn:hover {
+        background-color: #39ff14;
+        transform: scale(1.2);
+        transition: 0.5s;
+      }
+
+      @media only screen and (max-width: 600px) {
+        header,
+        nav a,
+        .seller-info-form {
+          display: grid;
+          justify-content: center;
+          text-align: center;
+        }
+
+        .logo {
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="#" class="logo">Bid<font color="aqua">Zilla</font></a>
+      <nav>
+        <a href="index.html"><button class="home-btn">Home</button></a>
+        <a href="in-progress.html">Dashboard</a>
+        <a href="in-progress.html">My Listings</a>
+        <a href="in-progress.html">Account Settings</a>
+        <a href="in-progress.html">Logout</a>
+      </nav>
+    </header>
+
+    <section class="dashboard-content">
+      <div class="welcome-message">
+        <h1>Welcome, <font color="aqua">Seller</font></h1>
+        <p>
+          To get started, please complete your profile by filling out the form
+          below.
+        </p>
+      </div>
+
+      <div class="seller-info-form">
+        <h2>Update Your Profile</h2>
+        <form
+          name="seller-forml"
+          action="/submit-seller-info"
+          method="POST"
+          onsubmit="return validateForm()"
+        >
+          <label for="seller-name">Full Name:</label>
+          <input
+            type="text"
+            id="seller-name"
+            name="seller-name"
+            placeholder="BidZilla Verma"
+          />
+
+          <label for="seller-email">Email:</label>
+          <input
+            type="email"
+            id="seller-email"
+            name="seller-email"
+            placeholder="bidzilla@gmail.com"
+            required
+          />
+
+          <label for="seller-address">Address:</label>
+          <input
+            type="text"
+            id="seller-address"
+            name="seller-address"
+            placeholder="Leftmost Row, Any Bench, 303"
+            required
+          />
+
+          <label for="seller-phone">Phone Number:</label>
+          <input
+            type="text"
+            id="seller-phone"
+            name="seller-phone"
+            placeholder="9988776655"
+            required
+          />
+
+          <button type="submit">Save Information</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 BidZilla - All Rights Reserved</p>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms of services.html">Terms of Service</a>
+      <a href="help center.html">Help Center</a>
+    </footer>
+
+    <script>
+      function validateForm() {
+        let x = document.forms["seller-forml"]["seller-name"].value;
+        if (x == "") {
+          alert("Name must be filled out");
+          return false;
+        }
+      }
+      document
+        .querySelector(".seller-info-form form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          window.location.href = "seller-dashboard.html";
+        });
+    </script>
+  </body>
+</html>

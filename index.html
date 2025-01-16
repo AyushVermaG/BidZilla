@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BidZilla - Online Auction Platform</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Arial", sans-serif;
+        background-color: #121212;
+        color: #d3d3d3;
+      }
+
+      a {
+        color: #00d1ff;
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: aqua;
+        transition: 1s;
+      }
+
+      button {
+        background-color: #00ddff;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        cursor:pointer;
+        border-radius: 5px;
+      }
+
+      button:hover {
+        background-color: #39ff14;
+        transform: scale(1.2);
+        transition: 1s;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        color: white;
+      }
+ 
+      header {
+  background-color: #000000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100; 
+} 
+
+      .logo {
+        color: #ffffff;
+        font-size: 25px;
+        font-weight: bold;
+      }
+
+      .search-bar input {
+        padding: 8px;
+        width: 300px;
+        background-color: #1c1c1c;
+        border: 1px solid #333;
+        color: #d3d3d3;
+        border-radius: 5px;
+      }
+
+      nav a {
+        margin: 0 15px;
+        color: #d3d3d3;
+      }
+
+      nav a:hover {
+        color: #06f64a;
+        transition: 1s;
+      }
+
+      .hero {
+        background: linear-gradient(to right, #1c1c1c, #000000);
+        text-align: center;
+        padding: 50px 0;
+      }
+
+      .hero h1 { 
+        font-size: 48px;
+        margin-bottom: 20px;
+      }
+
+      .hero button {
+        font-size: 18px;
+      }
+
+      .categories {
+        display: flex;
+        justify-content: left;
+        padding: 20px;
+        background-color: #1a1a1a;
+      }
+
+      .category {
+        margin: 0 15px;
+        text-align: center;
+      }
+
+      .category img {
+        width: 100px;
+        height: 80px;
+      }
+
+      .category h3 {
+        margin-top: 10px;
+      }
+
+      .auction-list {
+        display:grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 20px;
+        background-color: #121212;
+      }
+
+      .auction-item {
+        background-color: #232323;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .auction-item img {
+        max-width: 100%;
+        border-radius: 10px;
+      }
+
+      .auction-item h3 {
+        margin-top: 15px;
+        color: #ffffff;
+      }
+      .auction-image-container {
+    position: relative; 
+    width: 100%; 
+    height: 450px; 
+}
+
+.auction-image-container img {
+    max-width: 100%;
+    border-radius: 10px;
+    height: 100%; 
+}
+
+      .current-bid {
+        color: #00d1ff;
+        font-size: 18px;
+      }
+
+      .bid-now-btn {
+        background-color: #ff4500;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        margin-top: 15px; 
+      }
+
+      .bid-now-btn:hover {
+        background-color:lime;
+        transform: scale3d(1.1);
+        transition: 0.5s;
+      }
+
+      footer {
+        background-color: #000000;
+        padding: 30px;
+        text-align: center;
+        color: #d3d3d3;
+      }
+
+      footer a {
+        color: #d3d3d3;
+        margin: 0 10px;
+      }
+
+      footer a:hover {
+        color: #2eff05;
+      }
+      .seller{
+        color: aqua;
+        color: #ffffff;
+        font-size: medium;
+      }
+      .seller:hover{
+        background-color: #39ff14;
+        transform: scale(1.2);
+        transition: 1s;swesawaewa .
+      }
+      .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  border-radius: 12px;
+  background-color:#232323;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  transform:translate(3,2);
+  transition: 0.5s;
+
+}
+      .categories {
+    display: flex;
+    overflow-x: auto; 
+    padding: 20px;
+    background-color: #1a1a1a;
+    margin: 0 15px; 
+
+            padding: 20px;
+            background-color: #1a1a1a;
+        }
+
+        .category {
+            margin: 10 15px;
+            text-align:center;
+            flex:  10 10 auto;
+        }
+
+        .category img {
+            width: 80px;
+            height: 80px;
+        }
+
+        .category h3 {
+            margin-top: 10px;
+            
+        }
+             
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a; 
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333; 
+            border-radius: 10px; 
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00d1ff; 
+        }
+        @media only screen and (max-width: 600px) {
+  header,.search-bar,a,.dropdown {
+    display: grid;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    
+  }
+  .logo {
+    text-align: center;
+  }
+  
+}
+.welcome {
+  background: linear-gradient(to right, #00697e, #000000);
+  text-align: center;
+  border-radius:15px;
+  padding: 40px 20px;
+  color: #d3d3d3;
+}
+
+.welcome h2 {
+  font-size: 36px;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.welcome p {
+  font-size: 18px;
+  color: #d3d3d3;
+}
+.countdown
+{
+  justify-content:center;
+  align-content: center;
+      align-items: center;
+      width: fit-content;
+      text-align: center;
+}
+.countdown-box {
+    position: absolute;
+    bottom: 10px; 
+    left: 10px;
+    background-color: rgba(51, 51, 51, 0.7);
+    border: 2px solid #ff4500;
+    border-radius: 5px;
+    color: #ff4500;
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 0 5px rgba(255, 69, 0, 0.5);
+}
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="#" class="logo">Bid<font color="aqua">Zilla</font></a>
+      <div class="search-bar">
+        <input type="text" placeholder="Search items..." />
+      </div>
+      <nav>
+        <a href="seller.html" target="_parent"><button class="seller">Sell</button></a>
+        <a href="#">Home</a>
+       <!-- <a href="#categories">Categories</a>-->
+        <div class="dropdown">
+          <span><a href="#categories">Categories</a></span>
+          <div class="dropdown-content">
+            <p> <a href="electronics store.html">Electronics</a></p>
+            <p> <a href="clothes store.html">Clothes</a></p>
+            <p> <a href="collectibles.html">Collectibles</a></p>
+            <p> <a href="books.html">Books</a></p>
+            <p> <a href="furniture.html">Furniture</a></p>
+            <p> <a href="toys.html">Toys</a></p>
+            <p> <a href="art.html">Art</a></p>
+            <p> <a href="sports equipment.html">Sports Equipment</a></p>
+            <p> <a href="watches.html">Watches</a></p>
+            <p> <a href="jewelry.html">Jewelry</a></p>
+            <p> <a href="musical instruments.html">Musical Instrument</a></p>
+            <p> <a href="home decor.html">Home Decor</a></p>
+          </div>
+        </div>
+        <a href="in-progress.html">My Account</a>
+        <a href="in-progress.html">Help</a>
+      </nav>
+    </header>
+    <section class="hero">
+      <h1>Discover & Bid on Exclusive Items</h1>
+      <a href="#AAA"><button>Start Bidding Now</button></a>
+    </section>
+    
+
+    <section class="welcome" id="categories">
+      <div class="container">
+        <h2>Welcome to BidZilla</h2>
+        <p>
+          Explore rare collectibles, exclusive art, electronics, and much more at unbeatable prices. Are you ready to bid on items from around the world? 
+Join us and start bidding today!Step into BidZilla, your premier online auction platform! Discover a wide range of categories, including :
+        </p>
+      </div>
+    </section>
+    
+
+    <section class="categories" >
+      <div class="category" >
+        <a href="electronics store.html">
+          <img
+            src="https://5.imimg.com/data5/GG/UZ/FC/SELLER-66562557/electronics-home-appliance-store-billing-erp-software.jpg"
+            alt="Electronics"
+          />
+        </a>
+        <h3>Electronics</h3>
+      </div>
+    
+      <div class="category">
+        <a href="clothes store.html">
+          <img
+            src="https://img.freepik.com/premium-photo/luxury-store-window-with-mannequins-designer-clothes-designer-store-interior-ai_985124-9218.jpg"
+            alt="Clothes"
+          />
+        </a>
+        <h3>Clothes</h3>
+      </div>
+    
+      <div class="category">
+        <a href="collectibles.html">
+          <img
+            src="https://www.artisera.com/cdn/shop/files/15.1_ad8b4b5b-9abc-47e0-a759-c7ffe231ea36_420x.jpg?v=1707297629"
+            alt="Collectibles"
+          />
+        </a>
+        <h3>Collectibles</h3>
+      </div>
+    
+      <div class="category">
+        <a href="books.html">
+          <img
+            src="https://thumbs.dreamstime.com/b/books-library-concept-education-literature-reading-100259471.jpg"
+            alt="Books"
+          />
+        </a>
+        <h3>Books</h3>
+      </div>
+    
+      <div class="category">
+        <a href="furniture.html">
+          <img
+            src="https://www.mayfairgallery.com/media/wysiwyg/Furniture_main_image.jpg"
+            alt="Furniture"
+          />
+        </a>
+        <h3>Furniture</h3>
+      </div>
+    
+      <div class="category">
+        <a href="toys.html">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXNwi0Txnec00jZ668EYs56-ht48xcjTc0fQ&s"
+            alt="Toys"
+          />
+        </a>
+        <h3>Toys</h3>
+      </div>
+    
+      <div class="category">
+        <a href="art.html">
+          <img
+            src="https://sarasotaantiquebuyers.com/wp-content/uploads/2014/11/Antique-Oil-Paintings.jpg"
+            alt="Art"
+          />
+        </a>
+        <h3>Art</h3>
+      </div>
+    
+      <div class="category">
+        <a href="sports equipment.html">
+          <img
+            src="https://img.freepik.com/free-photo/sports-tools_53876-138077.jpg?size=626&ext=jpg&ga=GA1.1.1819120589.1727222400&semt=ais_hybrid"
+            alt="Sports Equipment"
+          />
+        </a>
+        <h3>Sports Equipment</h3>
+      </div>
+    
+      <div class="category">
+        <a href="watches.html">
+          <img
+            src="https://rapaport.com/wp-content/uploads/2023/09/500x500-pictures-Auction-Watches-1.jpg"
+            alt="Watches"
+          />
+        </a>
+        <h3>Watches</h3>
+      </div>
+    
+      <div class="category">
+        <a href="jewelry.html">
+          <img
+            src="https://images.naptol.com/usr/local/csp/staticContent/product_images/horizontal/750x750/Sumangali-Jewellery-Collection-o1.jpg"
+            alt="Jewelry"
+          />
+        </a>
+        <h3>Jewelry</h3>
+      </div>
+    
+      <div class="category">
+        <a href="musical instruments.html">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/20131205_Istanbul_321_cropped.jpg/230px-20131205_Istanbul_321_cropped.jpg"
+            alt="Musical Instruments"
+          />
+        </a>
+        <h3>Musical Instruments</h3>
+      </div>
+    
+      <div class="category">
+        <a href="home decor.html">
+          <img
+            src="https://contentgrid.homedepot-static.com/hdus/en_US/DTCCOMNEW/Articles/affordable-home-decor-ideas-2023-hero.jpg"
+            alt="Home Decor"
+          />
+        </a>
+        <h3>Home Decor</h3>
+      </div>
+    </section>
+    
+    </section>
+  
+    <section class="welcome">
+      <div class="container">
+        <h2>Top Featured Auctions</h2>
+        <p>
+          Check out some of our best items currently up for bid! Whether you're a seasoned collector or a first-time bidder, we offer a wide range of exclusive products from around the globe. From rare antiques and signed memorabilia to modern gadgets and fine art, there's something here for everyone. Don't miss your chance to own these one-of-a-kind treasures at unbeatable prices!
+        </p>
+        
+      </div>
+    </section>
+  <div id="AAA" >
+
+  </div>
+  <section class="auction-list" id="auction-list">
+    <div class="auction-item" data-end-time="2024-12-29T18:00:00Z">
+        <div class="auction-image-container">
+            <img src="https://images.squarespace-cdn.com/content/v1/57125c2c2b8dde54a34b537f/1610654167351-DYZM35C0LA6ZZ4YNP4QU/minoan-frescoes-2.jpg" alt="An antique painting" width="500" height="450">
+            <div class="countdown-box">
+                <p class="countdown"></p>
+            </div>
+        </div>
+        <h3>Antique Painting</h3>
+        <p class="current-bid">Current Bid: Rs.35000</p>
+        <br>
+        <a href="item11.html" target="_parent"><button class="bid-now-btn">Bid Now</button></a>
+    </div>
+
+    <div class="auction-item" data-end-time="2024-12-12T14:30:00Z">
+      <div class="auction-image-container">
+        <img src="https://cdn.originalbuddhas.com/uploads/153637/conversions/Golden_buddha_statue_3435-1-1-large.jpg" alt="Antique Shiva Statue" width="500" height="450">
+        <div class="countdown-box">
+          <p class="countdown"></p>
+        </div>
+      </div>
+      <h3>Antique Shiva Statue from India</h3>
+      <p class="current-bid">Current Bid: Rs.40000</p>
+      <a href="item2.html" target="_parent"><button class="bid-now-btn">Bid Now</button></a>
+    </div>
+    
+
+    <div class="auction-item" data-end-time="2024-12-13T16:00:00Z">
+      <div class="auction-image-container">
+        <img src="https://media-cdn.tripadvisor.com/media/photo-s/07/6b/2c/71/cricket-bat-signed-by.jpg" alt="Cricket bat signed by Virat Kohli" width="500" height="450">
+        <div class="countdown-box">
+          <p class="countdown"></p>
+        </div>
+      </div>
+      <h3>Cricket bat signed by Virat Kohli</h3>
+      <p class="current-bid">Current Bid: Rs.15000</p>
+      <a href="item3.html" target="_parent"><button class="bid-now-btn">Bid Now</button></a>
+    </div>
+
+    <div class="auction-item" data-end-time="2024-12-07T10:00:00Z">
+      <div class="auction-image-container">
+      <img src="https://www.swordsantiqueweapons.com/images/s228.jpg" alt="Antique Khukhri from Nepal" width="500" height="450">
+      <div class="countdown-box">
+        <p class="countdown"></p>
+      </div>
+      </div>
+      <h3>Antique Khukhri from Nepal</h3>
+      <p class="current-bid">Current Bid: Rs.15000</p>
+      <br>
+      <a href="item4.html" target="_parent"><button class="bid-now-btn">Bid Now</button></a>
+    </div>
+
+
+</section>
+
+
+    <footer>
+      <p>&copy; 2024 BidZilla - All Rights Reserved</p>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms of services.html">Terms of Service</a>
+      <a href="help center.html">Help Center</a>
+    </footer>
+    <script>
+
+      function startCountdown() {
+        const items = document.querySelectorAll('.auction-item');
+  
+        items.forEach(item => {
+          const endTime = new Date(item.getAttribute('data-end-time'));
+          const countdownElement = item.querySelector('.countdown');
+  
+        
+          const timerInterval = setInterval(() => {
+            const now = new Date();
+            const timeRemaining = endTime - now;
+  
+            if (timeRemaining > 0) {
+              const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+              const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+              const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+              const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+  
+              countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            } else {
+              clearInterval(timerInterval);
+              countdownElement.innerHTML = "Auction Ended";
+            }
+          }, 1000); 
+        });
+      }
+   
+  
+      window.onload = startCountdown;
+    </script>
+ </body>
+</html>
+ 
